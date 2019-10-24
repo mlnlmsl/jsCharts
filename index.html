@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="bar-graph"></div>
+    <div id="pie-chart"></div>
+
+
+    <!-- all the scripts as required -->
+    <script src="./js/constants.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/Line.js"></script>
+    <script src="./js/Bar.js"></script>
+    <script src="./js/Pie.js"></script>
+    <script src="./js/StackBar.js"></script>
+    <script src="./js/Graph.js"></script>
+
+    <script src="./js/index.js"></script>
+
+    <script>
+        var graph = new Graph(document.getElementById('bar-graph'));
+        var graph2 = new Graph(document.getElementById('pie-chart'));
+        const pieConfig = {
+            title: 'Pie visual',
+            type: 'pie',
+            data: [
+                { label: 'Label 1', data: 12 },
+                { label: 'Label 2', data: 10 },
+                { label: 'Label 3', data: 14 },
+                { label: 'Label 4', data: 20 },
+                { label: 'Label 5', data: 50 },
+                { label: 'Label 5', data: 40 }
+            ]
+        };
+
+        const barConfig = {
+            title: 'Bar Visual',
+            type: 'bar',
+            xAxis: {
+                type: 'indicator',
+                label: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: {
+                data: [1000, 3000, 1500, 1000, 2000, 6000, 200],
+                xLabel: 'Frequency',
+                yLabel: 'Year'
+            }
+        }
+
+        graph2.createChart(pieConfig);
+        graph.createChart(barConfig);
+        // !function (t, e) {
+        //     console.log(t.echarts = {});
+        // }(this, function () {
+        //     console.log(this);
+        // });
+    </script>
+</body>
+
+</html>
